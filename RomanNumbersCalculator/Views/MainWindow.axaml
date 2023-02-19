@@ -1,0 +1,50 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+		mc:Ignorable="d" d:DesignWidth="300" d:DesignHeight="450"
+		xmlns:vm="using:RomanNumbersCalculator.ViewModels"
+        x:Class="RomanNumbersCalculator.Views.MainWindow"
+		Title="RomanNumbersCalculator"
+		Icon="/Assets/SibSUTIS.ico">
+        
+	<Window.Styles>
+		<StyleInclude Source="/Assets/Styles.axaml"></StyleInclude>
+	</Window.Styles>
+	
+	<Grid ShowGridLines="False"
+		  ColumnDefinitions="0.25*, 0.25*, 0.25*, 0.25*" 
+		  RowDefinitions="0.2*, 0.2*, 0.2*, 0.2*, 0.2*">
+		
+		<TextBox Text="{Binding ShowValue}"
+				 Focusable="False" IsUndoEnabled="True" 
+				 Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4"></TextBox>
+		
+		<Button Command="{Binding AddNum}" CommandParameter="I" Name="I" 
+				Grid.Row="1" Grid.Column="0">I</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="C" Name="C" 
+				Grid.Row="1" Grid.Column="1">C</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="+" Name="Add" 
+				Grid.Row="1" Grid.Column="2">+</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="V" Name="V" 
+				Grid.Row="2" Grid.Column="0">V</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="D" Name="D" 
+				Grid.Row="2" Grid.Column="1">D</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="-" Name="Sub" 
+				Grid.Row="2" Grid.Column="2">-</Button>		
+		<Button Command="{Binding AddNum}" CommandParameter="X" Name="X" 
+				Grid.Row="3" Grid.Column="0">X</Button>
+		<Button Command="{Binding AddNum}" CommandParameter="M" Name="M" 
+				Grid.Row="3" Grid.Column="1">M</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="*" Name="Mul" 
+				Grid.Row="3" Grid.Column="2">*</Button>		
+		<Button Command="{Binding AddNum}" CommandParameter="L" Name="L" 
+				Grid.Row="4" Grid.Column="0">L</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="R" Name="Reset"
+				Grid.Row="4" Grid.Column="1">CE</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="/" Name="Div" 
+				Grid.Row="4" Grid.Column="2">/</Button>
+		<Button Command="{Binding ExecuteOperationCommand}" CommandParameter="="  Name="Result" 
+				Grid.Row="1" Grid.Column="3" Grid.RowSpan="5">=</Button>
+	</Grid>
+</Window>
